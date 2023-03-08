@@ -1,0 +1,31 @@
+functions:
+  replyTo:
+    events:
+      - http:
+          path: replyto
+          method: post
+          cors: true
+          documentation:
+            summary: "ReplyTo endpoint"
+            description: "Endpoint for sending emails via replyTo option"
+            requestModels:
+              "application/json": "ReplyToRequest"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseBody:
+                  description: "ReplyTo body description"
+                responseModels:
+                  "application/json": "ReplyToResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "ReplyToResponseError"
+              -
+                statusCode: "401"
+                responseModels:
+                  "application/json": "ReplyToResponseError"
+              -
+                statusCode: "500"
+                responseModels:
+                  "application/json": "ReplyToResponseError"

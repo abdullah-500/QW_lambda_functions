@@ -1,0 +1,23 @@
+functions:
+  forgotPassword:
+    events:
+      - http:
+          path: forgotPassword
+          method: post
+          cors: true
+          documentation:
+            summary: "User Forgot password functionality"
+            description: "Endpoint for forgot password functionality"
+            requestModels:
+              "application/json": "ForgotPasswordRequest"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseBody:
+                  description: "Response body description"
+                responseModels:
+                  "application/json": "ForgotPasswordResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "ForgotPasswordResponseError"

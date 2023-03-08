@@ -1,0 +1,23 @@
+functions:
+  signup:
+    events:
+      - http:
+          path: signup
+          method: post
+          cors: true
+          documentation:
+            summary: "User signup"
+            description: "Endpoint for user creation"
+            requestModels:
+              "application/json": "SignUpRequest"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseBody:
+                  description: "Response body description"
+                responseModels:
+                  "application/json": "SignUpResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "SignUpResponseError"

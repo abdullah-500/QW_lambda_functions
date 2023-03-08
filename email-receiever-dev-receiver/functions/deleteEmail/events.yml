@@ -1,0 +1,26 @@
+functions:
+  deleteEmail:
+    events:
+      - http:
+          path: deleteEmail
+          method: post
+          cors: true
+          authorizer:
+            name: authorizer
+            arn: arn:aws:cognito-idp:us-east-1:048363163273:userpool/us-east-1_AC9W7o7dp
+          documentation:
+            summary: "Endpoint for email deletion"
+            description: "Endpoint for email deletion"
+            requestModels:
+              "application/json": "DeleteEmailRequest"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseBody:
+                  description: "Response body description"
+                responseModels:
+                  "application/json": "DeleteEmailResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "DeleteEmailResponseError"

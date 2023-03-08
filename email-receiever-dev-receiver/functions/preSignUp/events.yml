@@ -1,0 +1,7 @@
+functions:
+  preSignUp:
+    events:
+      - cognitoUserPool:
+          pool: ${opt:stage}-user-pool
+          trigger: PreSignUp
+          existing: true

@@ -1,0 +1,23 @@
+functions:
+  logout:
+    events:
+      - http:
+          path: logout
+          method: post
+          cors: true
+          documentation:
+            summary: "User logout"
+            description: "Endpoint for user logout"
+            requestModels:
+              "application/json": "LogoutRequest"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseBody:
+                  description: "Response body description"
+                responseModels:
+                  "application/json": "LogoutResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "LogoutResponseError"

@@ -1,0 +1,34 @@
+functions:
+  deviceid:
+    events:
+      - http:
+          path: deviceid
+          method: post
+          cors: true
+          authorizer:
+            name: authorizer
+            arn: arn:aws:cognito-idp:us-east-1:048363163273:userpool/us-east-1_AC9W7o7dp
+          documentation:
+            summary: "DeviceId Update endpoint"
+            description: "Endpoint for deviceId update"
+            requestModels:
+              "application/json": "DeviceIdRequest"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseBody:
+                  description: "Response body description"
+                responseModels:
+                  "application/json": "DeviceIdResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "DeviceIdResponseError"
+              -
+                statusCode: "401"
+                responseModels:
+                  "application/json": "DeviceIdResponseError"
+              -
+                statusCode: "500"
+                responseModels:
+                  "application/json": "DeviceIdResponseError"

@@ -1,0 +1,23 @@
+functions:
+  signin:
+    events:
+      - http:
+          path: signin
+          method: post
+          cors: true
+          documentation:
+            summary: "User sign in"
+            description: "Endpoint for user authentication"
+            requestModels:
+              "application/json": "SignInRequest"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseBody:
+                  description: "Response body description"
+                responseModels:
+                  "application/json": "SignInResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "SignInResponseError"

@@ -1,0 +1,23 @@
+functions:
+  confirmForgotPassword:
+    events:
+      - http:
+          path: confirmForgotPassword
+          method: post
+          cors: true
+          documentation:
+            summary: "Confirmation of Forgot password"
+            description: "Endpoint for forgot password functionality"
+            requestModels:
+              "application/json": "ConfirmForgotPasswordRequest"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseBody:
+                  description: "Response body description"
+                responseModels:
+                  "application/json": "ConfirmForgotPasswordResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "ConfirmForgotPasswordResponseError"

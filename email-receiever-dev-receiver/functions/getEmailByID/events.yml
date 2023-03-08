@@ -1,0 +1,35 @@
+functions:
+  getEmailByID:
+    events:
+      - http:
+          path: getEmailByID
+          method: get
+          cors: true
+          authorizer:
+            name: authorizer
+            arn: arn:aws:cognito-idp:us-east-1:048363163273:userpool/us-east-1_AC9W7o7dp
+          documentation:
+            summary: "Single email retrieval by ID endpoint"
+            description: "Provides an endpoint for email retrieval by Email ID"
+            queryParams:
+              - name: emailID
+                description: "User email"
+              - name: RefreshToken
+                description: RefreshToken
+            methodResponses:
+              -
+                statusCode: "200"
+                responseModels:
+                  "application/json": "GetEmailByIDResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "GetEmailByIDResponseError"
+              -
+                statusCode: "401"
+                responseModels:
+                  "application/json": "GetEmailByIDResponseError"
+              -
+                statusCode: "500"
+                responseModels:
+                  "application/json": "GetEmailByIDResponseError"

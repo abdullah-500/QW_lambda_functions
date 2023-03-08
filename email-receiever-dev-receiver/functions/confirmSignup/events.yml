@@ -1,0 +1,31 @@
+functions:
+  confirmSignup:
+    events:
+      - http:
+          path: confirm
+          method: get
+          documentation:
+            summary: "Signup confirmation endpoint"
+            description: "Endpoint that is triggered from the confirmation email"
+            queryParams:
+              - name: email
+                description: "User email"
+              - name: confirmationCode
+                description: "Confirmation code"
+            methodResponses:
+              -
+                statusCode: "200"
+                responseModels:
+                  "application/json": "ConfirmSignupResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "ConfirmSignupResponseError"
+              -
+                statusCode: "401"
+                responseModels:
+                  "application/json": "ConfirmSignupResponseError"
+              -
+                statusCode: "500"
+                responseModels:
+                  "application/json": "ConfirmSignupResponseError"

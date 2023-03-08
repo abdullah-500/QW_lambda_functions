@@ -1,0 +1,38 @@
+functions:
+  getEmails:
+    events:
+      - http:
+          path: getEmails
+          method: get
+          cors: true
+          # private: true
+          authorizer:
+            name: authorizer
+            arn: arn:aws:cognito-idp:us-east-1:048363163273:userpool/us-east-1_AC9W7o7dp
+          documentation:
+            summary: "Email retrieval endpoint"
+            description: "Temporary Endpoint for email retrieval. Will get deprecated once pulling mechanism is replaced by push"
+            queryParams:
+              - name: email
+                description: "User email"
+              - name: requestCount
+                description: "Incremental requests count"
+              - name: RefreshToken
+                description: RefreshToken
+            methodResponses:
+              -
+                statusCode: "200"
+                responseModels:
+                  "application/json": "GetEmailsResponse"
+              -
+                statusCode: "400"
+                responseModels:
+                  "application/json": "GetEmailsResponseError"
+              -
+                statusCode: "401"
+                responseModels:
+                  "application/json": "GetEmailsResponseError"
+              -
+                statusCode: "500"
+                responseModels:
+                  "application/json": "GetEmailsResponseError"
